@@ -1,0 +1,46 @@
+---
+layout: default
+---
+
+<div class="home">
+    <h1 class="page-heading"></h1>
+    <ul class="animation-listing">
+        {% for person in site.people %}
+        <a href="{{ person.url | prepend: site.baseurl }}">
+            <div style="background:url({{ person.img }}) center; background-size: cover;" class="animation">
+                <span>{{ person.name }}</span>
+                {% if person.audio %}
+                <audio class="sound" preload>
+                    <source src="{{person.audio}}"></source>
+                </audio>
+                {% endif %}
+            </div>
+        </a>
+        {% endfor %}
+    </ul>
+    <script>
+    var sounds = Array.from(document.querySelectorAll('.sound'));
+    sounds.forEach(function(sound) {
+        sound.parentElement.addEventListener('mouseover', function() {
+            sound.play();
+        });
+
+        sound.parentElement.addEventListener('mouseout', function() {
+            sound.pause();
+        });
+    });
+    </script>
+    <!--   <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p> -->
+</div>
