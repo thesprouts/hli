@@ -1,0 +1,74 @@
+---
+title: Three Panel Comic Template
+subtitle: 
+---
+
+<html>
+<head>
+	<title>HLI: Three Panel Template</title>
+
+	<style>
+	body {
+		text-align:center;
+		font-family:Helvetica;
+	}
+	#header {
+		padding:20px;
+	}
+	#header h1 {
+		padding:10px;
+		margin:0;
+	}
+	#comic {
+		margin:auto;
+		width:calc(3 * (400px + 2*6px));
+	}
+	#panel1, #panel2, #panel3 {
+		/*This sets the size and position of the comic panel.*/
+		height:400px;
+		width:400px;
+		border:solid 1px black;
+		float:left;
+		margin:5px;
+		background-size:cover;
+		box-shadow:2px 2px 5px #555;
+	}
+	#panel1 {
+		/*Here is where we set the background image for panel 1.*/
+		background-image:url(./img/bam.png);
+	}
+	#panel1:hover {
+		/*Whatever effects you want to happen when you over over your comic 
+		should go here, between these two {}s.*/
+	}
+	#panel2 {
+		/*Here is where we set the background image for panel 2.*/
+		background-image:url(./img/bang.jpg);
+	}
+	#panel2:hover {
+		/*Whatever effects you want to happen when you over over your comic 
+		should go here, between these two {}s.*/
+	}
+	#panel3 {
+		/*Here is where we set the background image for panel 3.*/
+		background-image:url(./img/pow.gif);
+	}
+	#panel3:hover {
+		/*Whatever effects you want to happen when you over over your comic 
+		should go here, between these two {}s.*/
+	}
+	</style>
+</head>
+<body>
+<div id="header">
+	<h1>Title of My Comic!</h1>
+	<small>by Me McMeemee</small>
+</div>
+<div id="comic">
+	<div id="panel1"></div>
+	<div id="panel2"></div>
+	<div id="panel3"></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+---
+layout: page
+title: Code Samples
+permalink: /code/
+---
+
+{% for script in site.code %}
+<ul>
+	<li>
+		<a href="{{ script.url | prepend: site.baseurl }}">{{ script.title }}</a>{% if script.subtitle %}: {{ script.subtitle}} {% endif %} [<a href='{{script.codepen}}'>codepen</a>]
+	</li>
+</ul>
+{% endfor %}

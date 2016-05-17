@@ -1,0 +1,48 @@
+---
+title: One Panel Comic Template
+subtitle: 
+---
+
+<html>
+<head>
+	<title>HLI: One Panel Template</title>
+
+	<style>
+	body {
+		text-align:center;
+		font-family:Helvetica;
+	}
+	#header {
+		padding:20px;
+	}
+	#header h1 {
+		padding:10px;
+		margin:0;
+	}
+	#comic {
+		/*This sets the size and position of the comic panel.*/
+		height:450px;
+		width:450px;
+		border:solid 1px black;
+		margin:auto;
+
+		/*Here is where we set the background image.*/
+		background-image:url(./img/sd.jpg);
+		background-size:cover;
+	}
+	#comic:hover {
+		/*Whatever effects you want to happen when you over over your comic 
+		should go here, between these two {}s.*/
+	}
+	</style>
+</head>
+<body>
+<div id="header">
+	<h1>Title of My Comic!</h1>
+	<small>by Me McMeemee</small>
+</div>
+
+<div id="comic"></div>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+---
+title: YOLO
+subtitle: using the brightness effect, 3 panel comic
+---
+
+<html>
+<head>
+	<title>HLI: brightness</title>
+
+	<style>
+	body {
+		text-align:center;
+		font-family:Helvetica;
+	}
+	#header {
+		padding:20px;
+	}
+	#header h1 {
+		padding:10px;
+		margin:0;
+	}
+	#comic {
+		margin:auto;
+		width:calc(3 * (400px + 2*6px));
+	}
+	#panel1, #panel2, #panel3 {
+		/*This sets the size and position of the comic panel.*/
+		height:400px;
+		width:400px;
+		border:solid 1px black;
+		margin:auto;
+		float:left;		
+		margin:5px;
+		background-size:cover;
+		box-shadow:2px 2px 5px #555;
+	}
+	#panel1 {
+		/*Here is where we set the background image for panel 1.*/
+		background-image:url(./img/knock-knock.png);
+		background-color:lightyellow;
+	}
+	#panel1:hover {
+		/*Whatever effects you want to happen when you over over your comic 
+		should go here, between these two {}s.*/
+	}
+	#panel2 {
+		/*Here is where we set the background image for panel 2.*/
+		background-image:url(./img/whos-there.png);
+		background-color:lightyellow;
+	}
+	#panel2:hover {
+		/*Whatever effects you want to happen when you over over your comic 
+		should go here, between these two {}s.*/
+	}
+	#panel3 {
+		/*Here is where we set the background image for panel 3.*/
+		background-image:url(./img/reaper.png);
+		-webkit-filter:brightness(0%);
+		transition:1s;
+	}
+	#panel3:hover {
+		/*Whatever effects you want to happen when you over over your comic 
+		should go here, between these two {}s.*/
+		-webkit-filter:brightness(100%);
+	}
+	</style>
+</head>
+<body>
+<div id="header">
+	<h1>YOLO</h1>
+	<small>by Shaunalynn</small>
+</div>
+<div id="comic">
+	<div id="panel1"></div>
+	<div id="panel2"></div>
+	<div id="panel3"></div>
+</div>
+
+</body>
+</html>

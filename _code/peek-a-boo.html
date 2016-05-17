@@ -1,0 +1,52 @@
+---
+title: Peek A Boo
+subtitle: making things disappear, 1 panel comic
+---
+
+<html>
+<head>
+	<title>HLI: opacity</title>
+
+	<style>
+	body {
+		text-align:center;
+		font-family:Helvetica;
+	}
+	#header {
+		padding:20px;
+	}
+	#header h1 {
+		padding:10px;
+		margin:0;
+	}
+	#comic {
+		/*This sets the size and position of the comic panel.*/
+		height:450px;
+		width:450px;
+		border:solid 1px black;
+		margin:auto;
+
+		/*Here is where we set the background image.*/
+		background-image:url(./img/baby-meme.png);
+		background-size:cover;
+
+		/*Other effects you want on your comic should go here.*/
+		transition:.2s;
+	}
+	#comic:hover {
+		/*Whatever effects you want to happen when you over over your comic 
+		should go here, between these two {}s.*/
+		opacity:0;
+	}
+	</style>
+</head>
+<body>
+<div id="header">
+	<h1>Peek A Boo</h1>
+	<small>by Shaunalynn</small>
+</div>
+
+<div title="Well, I do..." id="comic"></div>
+
+</body>
+</html>

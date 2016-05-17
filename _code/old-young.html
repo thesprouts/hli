@@ -1,0 +1,52 @@
+---
+title: Old Woman, Young Girl
+subtitle: using the rotate effect, 1 panel comic
+---
+
+<html>
+<head>
+	<title>HLI: rotate</title>
+
+	<style>
+	body {
+		text-align:center;
+		font-family:Helvetica;
+	}
+	#header {
+		padding:20px;
+	}
+	#header h1 {
+		padding:10px;
+		margin:0;
+	}
+	#comic {
+		/*This sets the size and position of the comic panel.*/
+		height:450px;
+		width:450px;
+		border:solid 1px black;
+		margin:auto;
+
+		/*Here is where we set the background image.*/
+		background-image:url(./img/old-young.png);
+		background-size:cover;
+
+		/*Other effects you want on your comic should go here.*/
+		transition:1s;
+	}
+	#comic:hover {
+		/*Whatever effects you want to happen when you over over your comic 
+		should go here, between these two {}s.*/
+		transform: rotate(180deg);
+	}
+	</style>
+</head>
+<body>
+<div id="header">
+	<h1>Old Woman, Young Girl</h1>
+	<small>by Shaunalynn</small>
+</div>
+
+<div id="comic"></div>
+
+</body>
+</html>
