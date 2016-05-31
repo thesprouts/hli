@@ -3,11 +3,35 @@ layout: page
 title: Code Samples
 permalink: /code/
 ---
-
+<!-- <h1>Introductions</h1><hr>
 {% for script in site.code %}
-<ul>
-	<li>
-		<a href="{{ script.url | prepend: site.baseurl }}">{{ script.title }}</a>{% if script.subtitle %}: {{ script.subtitle}} {% endif %} [<a href='{{script.codepen}}'>codepen</a>]
-	</li>
-</ul>
+	{% if script.category == 'intros' %}
+	<ul>
+		<li>
+			<a href="{{ script.url | prepend: site.baseurl }}">{{ script.title }}</a>{% if script.subtitle %}: {{ script.subtitle}} {% endif %}
+		</li>
+	</ul>
+	{% endif %}
+{% endfor %} -->
+
+<h1>Templates</h1><hr>
+{% for script in site.code %}
+	{% if script.category == 'templates' %}
+	<ul>
+		<li>
+			<a href="{{ script.url | prepend: site.baseurl }}">{{ script.title }}</a>{% if script.subtitle %}: {{ script.subtitle}} {% endif %}
+		</li>
+	</ul>
+	{% endif %}
+{% endfor %}
+
+<h1>#AddAWordRuinAMovie</h1><hr>
+{% for script in site.code %}
+	{% if script.category == 'movies' %}
+	<ul>
+		<li>
+			<a href="{{ script.url | prepend: site.baseurl }}">{{ script.title }}</a>{% if script.subtitle %}: {{ script.subtitle}} {% endif %}
+		</li>
+	</ul>
+	{% endif %}
 {% endfor %}

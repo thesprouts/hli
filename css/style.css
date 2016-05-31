@@ -135,6 +135,7 @@ pre {
   display:inline-block;
   background-size:contain;
   box-shadow:inset 0px 0px 5px black;
+  border-radius: 20px 20px 0px 0px;
 }
 
 .animation > span {
