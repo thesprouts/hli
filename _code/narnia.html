@@ -1,0 +1,74 @@
+---
+title: Narnia
+subtitle: 
+---
+
+<html>
+<head>
+	<title>HLI: One Panel Template</title>
+
+	<style>
+	/*********************************************************/
+	/***** The part between these lines is the template. *****/
+	/*********************************************************/
+	body {
+		text-align:center;
+		font-family:Helvetica;
+	}
+	#header {
+		padding:20px;
+	}
+	#header h1 {
+		padding:10px;
+		margin:0;
+	}
+	#panel1 {
+		height:450px;
+		width:450px;
+		border:solid 1px black;
+		margin:auto;
+	}
+	/*********************************************************/
+	/*********************************************************/
+	/*********************************************************/
+	
+	#panel1 {
+		/*Here is where we set the background image.*/
+		background-image:url(./img/narnia.png);
+		background-size:cover;
+
+		position:relative;
+	}
+	#panel1:hover {
+		/*Whatever effects you want to happen when you over over your comic 
+		should go here, between these two {}s.*/
+	}
+	#censor {
+		background-color:black;
+		height:50px;
+		width:170px;
+
+		position:absolute;
+
+		top:60%;
+		left:35%;
+	}
+	#censor:hover {
+		opacity:0;
+		transition:.5s;
+	}
+	</style>
+</head>
+<body>
+<div id="header">
+	<h1>The Lion, the Witch, and the Wardrobe Malfunction</h1>
+	<small>by Shaunalynn</small>
+</div>
+
+<div id="panel1">
+	<div id="censor"></div>
+</div>
+
+
+</body>
+</html>
