@@ -1,11 +1,11 @@
 ---
-title: Psychelic Supernova
-subtitle: using the hue-rotate effect, 1 panel comic
+title: Willy Wonka
+subtitle: replacing the background image, one panel comic
 ---
 
 <html>
 <head>
-	<title>HLI: hue-rotate</title>
+	<title>#AddAWordRuinAMovie</title>
 
 	<style>
 	/*********************************************************/
@@ -34,22 +34,21 @@ subtitle: using the hue-rotate effect, 1 panel comic
 
 	#panel1 {
 		/*Here is where we set the background image.*/
-		background-image:url(./img/supernova.jpg);
+		background-image:url(./img/wonka.jpg);
 		background-size:cover;
-
-		/*Other effects you want on your comic should go here.*/
-		transition:2s;
+		transition:.8s;
 	}
 	#panel1:hover {
 		/*Whatever effects you want to happen when you over over your comic 
 		should go here, between these two {}s.*/
-		-webkit-filter: hue-rotate(360deg);
+		background-image:url(./img/wonka2.jpg);
+
 	}
 	</style>
 </head>
 <body>
 <div id="header">
-	<h1>Psychedelic Supernova</h1>
+	<h1>Willy Wonka & the Chocolate Factory Massacre</h1>
 	<small>by Shaunalynn</small>
 </div>
 

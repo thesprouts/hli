@@ -8,6 +8,9 @@ subtitle: using the rotate effect, 1 panel comic
 	<title>HLI: rotate</title>
 
 	<style>
+	/*********************************************************/
+	/***** The part between these lines is the template. *****/
+	/*********************************************************/
 	body {
 		text-align:center;
 		font-family:Helvetica;
@@ -19,13 +22,17 @@ subtitle: using the rotate effect, 1 panel comic
 		padding:10px;
 		margin:0;
 	}
-	#comic {
-		/*This sets the size and position of the comic panel.*/
+	#panel1 {
 		height:450px;
 		width:450px;
 		border:solid 1px black;
 		margin:auto;
-
+	}
+	/*********************************************************/
+	/*********************************************************/
+	/*********************************************************/
+	
+	#panel1 {
 		/*Here is where we set the background image.*/
 		background-image:url(./img/old-young.png);
 		background-size:cover;
@@ -33,7 +40,7 @@ subtitle: using the rotate effect, 1 panel comic
 		/*Other effects you want on your comic should go here.*/
 		transition:1s;
 	}
-	#comic:hover {
+	#panel1:hover {
 		/*Whatever effects you want to happen when you over over your comic 
 		should go here, between these two {}s.*/
 		transform: rotate(180deg);
@@ -46,7 +53,7 @@ subtitle: using the rotate effect, 1 panel comic
 	<small>by Shaunalynn</small>
 </div>
 
-<div id="comic"></div>
+<div id="panel1"></div>
 
 </body>
 </html>
