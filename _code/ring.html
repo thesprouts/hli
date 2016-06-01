@@ -1,0 +1,101 @@
+---
+title: Ring
+subtitle: 
+category: intros
+---
+
+<!DOCTYPE html>
+<html id="html">
+
+<head>
+    <style>
+
+    	.button {
+        height: 100px;
+        font-size: 40px;
+        background-color: black;
+        position: relative;
+        top: 600px;
+        color:white;
+    }
+	#border {
+		position:relative;
+		left:10%;
+		top:10%;
+		border-width: 10px;
+		border-style: solid;
+		
+		width:800px;
+		height:600px;
+	}
+    #ring {
+        background-image: url(./img/ring.png);
+        background-size: contain;
+        top:10%;
+        width: 500px;
+        height: 500px;
+        background-repeat: no-repeat;
+        -webkit-filter:hue-rotate(200deg);
+        position:relative;
+        left:22%;
+    }
+
+    #text {
+    	text-align:center;
+		font-size:100px; 
+		font-family:courier;
+
+
+    }
+    </style>
+</head>
+
+<body>
+
+<div style="border-color:grey;" id="border"> 
+
+<div id="text"></div>
+
+
+   <div id="ring"></div>
+
+            <button id="Brian" class="button" type=submit> Guess who?</button>
+
+  
+   </div>
+
+    <script>
+    var ring = document.getElementById("ring");
+    var html = document.getElementById('html');
+
+    ring.addEventListener("mouseover", function() {
+        html.style.backgroundColor = "yellow";
+        // html.style.transition = "1s";
+       text.innerText = "or gold?";
+        text.style.transition = "1s"; 
+        ring.style.webkitFilter = 'hue-rotate('+ 0 + 'deg)';
+
+    })
+
+    ring.addEventListener("mouseout", function() {
+        html.style.backgroundColor = "white";
+               text.innerText = "Silver?";
+               	ring.style.webkitFilter = 'hue-rotate('+ 200+ 'deg)';
+               // text.style.transition = "1s";
+
+
+    })
+
+   var text = document.getElementById("text");
+   text.innerText = "Silver?";
+
+   // // ring.addEventListener("mouseover", function(){
+   	ring.style.webkitFilter = 'hue-rotate('+ 0+ 'deg)';
+   // // 	html.style.backgroundColor="yellow";
+   
+
+   // // });
+    </script>
+</body>
+
+</html>

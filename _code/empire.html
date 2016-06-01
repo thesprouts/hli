@@ -1,0 +1,111 @@
+---
+title: Empire
+subtitle: 
+category: intros
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+
+/*This is for the image without a wink (the first image)
+*/	#empire {
+        width: 470px;
+        height: 750px;
+        background-image: url(./img/empire.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        position:relative;
+        left:20%;
+        top:10%;
+    }
+
+/*This is for the image with a wink (the second image that appears when you hover over it)
+*/    
+    #empire:hover {
+        background-image: url(./img/empireWink.png);
+
+    }
+
+
+
+/*This is for the div around the word "Who's?"
+*/
+    #text {
+        color:#F0E68C;
+        font-family:courier;
+    }
+
+
+/*This is for the div around all of the stuff
+*/
+	.border {
+		position:relative;
+		left:10%;
+		top:10%;
+		border-color:black;
+		border-width: 10px;
+		border-style: solid;
+		text-align:center;
+		font-size:80px; 
+		width:800px;
+		height:800px;
+		
+
+	}
+
+    /*This is for the "Guess who" button
+*/
+
+
+	.button {
+        height: 100px;
+        font-size: 40px;
+        background-color: black;
+        position: relative;
+        top: 600px;
+        color:white;
+    }
+</style>
+</head>
+<body>
+
+<div class="border">
+        <div id="empire">
+            <button id="Crystal" class="button" type=submit>Guess who?</button>
+            <audio id="empireAudio" src="./audio/empire.m4a"></audio>
+            <br>  <br>
+            <div id=text style="opacity:0.0;"> Who's </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <script>
+
+    var text = document.getElementById('text');
+    	
+    	var empireaudio = document.getElementById("empireAudio")
+    var empire = document.getElementById("empire");
+    empire.addEventListener("mouseover", function() {
+    	text.style.opacity ="1.0";
+        empireaudio.play();
+    })
+
+    empire.addEventListener("mouseout", function() {
+      text.style.opacity="0.0";
+
+    });
+
+
+
+    </script>
+
+</body>
+</html>

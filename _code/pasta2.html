@@ -1,0 +1,105 @@
+---
+title: Pasta 2
+subtitle: 
+category: intros
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+
+	.border {
+		position:relative;
+		left:10%;
+		top:10%;
+		border-color:black;
+		border-width: 10px;
+		border-style: solid;
+		text-align:center;
+		font-size:50px; 
+		font-family:courier;
+		width:800px;
+		height:600px;
+	}
+
+	#pasta {
+        width: 600px;
+        	left:10%;
+        height: 300px;
+        background-size: cover;
+        position: relative;
+        background-image: url(./img/pasta.png);
+    }
+    
+    #pasta:hover {
+        animation-name: shake;
+        animation-timing-function: ease;
+        animation-iteration-count: infinite;
+        animation-duration: 2s;
+    }
+    
+    @keyframes shake {
+        0% {
+            transform: rotate(60deg);
+        }
+        50% {
+            transform: rotate(-60deg);
+        }
+        100% {
+            transform: rotate(60deg);
+        }
+    }
+
+      .button {
+        height: 100px;
+        font-size: 40px;
+        background-color: red;
+        position: relative;
+        top: 700px;
+    }
+</style>
+</head>
+
+
+<body>
+
+<div class="border">
+        <button class="button" id="Brian">Guess Who?</button>
+        <div id="pasta" ; class="images">
+        </div>
+        <audio id="myHouse" src="./audio/myHouse.mp3"></audio>
+             No forks allowed
+    </div>
+
+
+ 
+
+
+    <script type="text/javascript">
+    	
+    	var myHouse = document.getElementById("myHouse")
+
+
+
+    
+    var pasta = document.getElementById("pasta");
+    pasta.addEventListener("mouseover", function() {
+        myHouse.play();
+    })
+
+    pasta.addEventListener("mouseout", function() {
+        myHouse.pause();
+    });
+
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+    

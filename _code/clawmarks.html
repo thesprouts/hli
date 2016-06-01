@@ -1,0 +1,121 @@
+---
+title: Claw Marks
+subtitle: 
+category: intros
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+
+	 #clawmarks {
+        opacity: 0.0;
+        display: inline-block;
+        animation-name: appear;
+        animation-duration: 1.0s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease;
+        width: 600px;
+        height: 500px;
+        opacity: 0.0;
+        background-size: cover;
+        position: relative;
+        background-image: url(./img/redclawmarks.png);
+    }
+    
+    #claws {
+        display: inline-block;
+        transform: rotate(-50deg);
+        width: 600px;
+        height: 400px;
+        left: 25%;
+        background-size: contain;
+        position: relative;
+        background-image: url(./img/redclaws.png);
+        background-repeat: no-repeat;
+        animation-duration: 1s;
+        animation-timing-function: ease, ease;
+        animation-name: strike, strikeleft;
+        animation-iteration-count: infinite;
+    }
+    
+    @keyframes strike {
+        0% {
+            top: -20%;
+        }
+        100% {
+            top: 50%;
+        }
+    }
+    
+    @keyframes strikeleft {
+        0% {
+            left: 0%;
+        }
+        50% {
+            left: 50%;
+        }
+        100% {
+            left: 0%;
+        }
+    }
+    
+    @keyframes appear {
+        0% {
+            opacity: 0.0;
+        }
+        50% {
+            opacity: 1.0;
+        }
+        100% {
+            opacity: 0.0;
+        }
+    }
+
+    .button {
+        height: 100px;
+        font-size: 40px;
+        background-color: red;
+        color:black;
+        position: relative;
+        top: 600px;
+        left:40%;
+    }
+
+	</style>
+</head>
+<body>
+
+ 
+        <div id="click" style="text-align:center; color:white; font-size:50px; background-color:blue;"></div> 
+    <!-- <div id="stop" style="background-color:yellow; font-family:courier; font-size:60px">STOP!</div> -->
+    <div class="border" id="clawborder" style="opacity:0.0;">
+        <div id="clawmarks" class="images">
+            <div id="claws"></div>
+        </div>
+        <br><br><br><br><br><br><br>
+         <button style="top:10%;" id="Clemens" class="button" type=submit> Guess who?</button>
+    </div>
+
+    <script type="text/javascript">
+    	
+    	    var click = document.getElementById("click");
+    	   	click.innerText = "click?"
+    var clawborder = document.getElementById("clawborder");
+
+    click.addEventListener("click", function() {
+        clawborder.style.opacity = "1.0";
+        click.innerText = "CLAW!";
+        click.style.transition = "0.5s";
+        click.style.fontSize= "200px";
+        click.style.backgroundColor = "red";
+        click.style.color="black";
+    })
+ 
+    </script>
+
+   
+
+</body>
+</html>

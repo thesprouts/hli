@@ -1,0 +1,188 @@
+---
+title: Hummer 1
+subtitle: 
+category: intros
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+
+/*    This is the formatting for the moving div 
+*/   
+ #hummer {
+        opacity: 0.0;
+        width: 500px;
+        height: 400px;
+        background-size: cover;
+        position: relative;
+        background-image: url(./img/redHummer.png);
+        animation-name: bounce, grow, growX;
+        animation-timing-function: ease, ease, ease;
+        animation-iteration-count: infinite;
+        animation-duration: 1.1s;
+    }
+
+
+/*    This is the  animation that makes the hummer to  move up and down.
+*/
+@keyframes bounce {
+        0% {
+            top: -50%;
+        }
+        50% {
+            top: 0%;
+        }
+        100% {
+            top: -50%;
+        }
+    }
+
+/*    This is the  animation that makes the hummer to get taller and shorter.
+*/
+    
+    @keyframes grow {
+        0% {
+            height: 400px;
+        }
+        50% {
+            height: 600px;
+        }
+        100% {
+            height: 400px;
+        }
+    }
+    
+
+/*        This is the keyframe animation that makes the hummer fatter and skinnier.
+*/
+    @keyframes growX {
+        0% {
+            width: 700px;
+        }
+        50% {
+            width: 800px;
+        }
+        100% {
+            width: 700px;
+        }
+    }
+    
+
+
+/*                This is for the image behind the hummer
+*/
+	    #landscape {
+        width: 900px;
+        height: 800px;
+        background-size: cover;
+        background-image: url(./img/saltFlats.png);
+        right: 0%;
+    }
+    
+
+/*This is for the div surrounding the text "Enjoying the sound of nature?"
+*/
+    #textA{
+    	position:relative;
+    	top:10%;
+    	left:1%;
+        font-family:courier;
+        font-size:50px;
+    }
+
+/*    This is for the div surrounding text "Sorry!"
+*/
+
+    #textB{
+    	position:relative;
+    	top:10%;
+    	left:1%;
+        font-family:courier;
+        font-size:200px;
+        color:red;
+        font-style:bold;
+        transform:rotate(30deg);
+    }
+
+    
+
+
+    /*This is the div surrounding everything for formatting.
+*/
+.border {
+        position:relative;
+        left:10%;
+        top:10%;
+        border-color:black;
+        border-width: 10px;
+        border-style: solid;
+        text-align:center;
+        font-size:80px; 
+        width:900px;
+        height:800px;     
+
+    }
+/*            This is for the "guess who" button
+*/    .button {
+        height: 100px;
+        font-size: 40px;
+        background-color: lightblue;
+        position: relative;
+        top: 600px;
+    }
+
+
+</style>
+</head>
+<body>
+
+<div class="border">
+        <div id="landscape">        
+        <div id="textA">Enjoying nature's silence?</div>
+
+        <div id="textB">SORRY!</div>
+
+            <button id="Crystal" class="button" type=submit> Guess who?</button>
+            <div id="hummer"></div>
+
+            <audio id="sorrySong" src="./audio/sorry.mp3"></audio>
+        </div>
+    </div>
+
+
+
+
+
+    <script type="text/javascript">
+
+
+    var texta = document.getElementById("textA");
+
+     var textb = document.getElementById("textB")
+    	
+    var sorrySong = document.getElementById("sorrySong")
+    var landscape = document.getElementById("landscape");
+    var hummer = document.getElementById("hummer");
+    landscape.addEventListener("mouseover", function() {
+        hummer.style.opacity = "1.0";
+        sorrySong.play();
+        texta.style.opacity="0.0";
+        textb.style.opacity="1.0";
+    })
+
+    landscape.addEventListener("mouseout", function() {
+        hummer.style.opacity = "0.0";
+        sorrySong.pause();
+          texta.style.opacity="1.0";
+        textb.style.opacity="0.0";
+
+    });
+
+
+    </script>
+
+</body>
+</html>
