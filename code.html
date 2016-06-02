@@ -1,9 +1,9 @@
 ---
 layout: page
-title: Code Samples
+title:
 permalink: /code/
 ---
-<h1>Introductions</h1><hr>
+<h1 id="intros">Introductions</h1><hr>
 {% for script in site.code %}
 	{% if script.category == 'intros' %}
 	<ul>
@@ -14,7 +14,7 @@ permalink: /code/
 	{% endif %}
 {% endfor %}
 
-<h1>Templates</h1><hr>
+<h1 id="templates">Sample Comics</h1><hr>
 {% for script in site.code %}
 	{% if script.category == 'templates' %}
 	<ul>
@@ -25,7 +25,7 @@ permalink: /code/
 	{% endif %}
 {% endfor %}
 
-<h1>#AddAWordRuinAMovie</h1><hr>
+<h1 id="movies">#AddAWordRuinAMovie</h1><hr>
 {% for script in site.code %}
 	{% if script.category == 'movies' %}
 	<ul>
