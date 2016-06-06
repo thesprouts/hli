@@ -1,0 +1,58 @@
+---
+title: Sunsplosion No. 2
+subtitle: Don't stare at the sun or you'll go blind.
+category: templates
+---
+
+<html>
+<head>
+	<title>HLI: One Panel Template</title>
+
+	<style>
+	/*********************************************************/
+	/***** The part between these lines is the template. *****/
+	/*********************************************************/
+	body {
+		text-align:center;
+		font-family:Helvetica;
+	}
+	#header {
+		padding:20px;
+	}
+	#header h1 {
+		padding:10px;
+		margin:0;
+	}
+	#panel1 {
+		height:450px;
+		width:450px;
+		border:solid 1px black;
+		margin:auto;
+	}
+	/*********************************************************/
+	/*********************************************************/
+	/*********************************************************/
+	
+	#panel1 {
+		/*Here is where we set the background image.*/
+		background-image:url(http://media.twiliocdn.com.s3-external-1.amazonaws.com/AC4c7e361ffe2675c8003322fbff77451f/7c38784f03d7dc68f78d4291b6b8d7ad);
+		background-size:cover;
+		transition:.5s;
+	}
+	#panel1:hover {
+		/*Whatever effects you want to happen when you over over your comic 
+		should go here, between these two {}s.*/
+		-webkit-filter:brightness(5%);
+	}
+	</style>
+</head>
+<body>
+<div id="header">
+	<h1>One day, the sun will explode and all will be dark...</h1>
+	<small>by Shaunalynn, with Molly and Jalan's pictures</small>
+</div>
+
+<div id="panel1"></div>
+
+</body>
+</html>

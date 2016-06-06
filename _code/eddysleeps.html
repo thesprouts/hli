@@ -1,0 +1,82 @@
+---
+title: 3 Eddy Sleeps
+subtitle: AKA Eddy loves reading.
+category: templates
+---
+
+<html>
+<head>
+	<title>HLI: Three Panel Template</title>
+
+	<style>
+	/*********************************************************/
+	/***** The part between these lines is the template. *****/
+	/*********************************************************/
+	body {
+		text-align:center;
+		font-family:Helvetica;
+	}
+	#header {
+		padding:20px;
+	}
+	#header h1 {
+		padding:10px;
+		margin:0;
+	}
+	#comic {
+		margin:auto;
+		width:calc(3 * (400px + 2*6px));
+	}
+	#panel1, #panel2, #panel3 {
+		/*This sets the size and position of the comic panel.*/
+		height:400px;
+		width:400px;
+		border:solid 1px black;
+		float:left;
+		margin:5px;
+		background-size:cover;
+		box-shadow:2px 2px 5px #555;
+	}
+	/*********************************************************/
+	/*********************************************************/
+	/*********************************************************/
+
+	#panel1 {
+		/*Here is where we set the background image for panel 1.*/
+		background-image:url(http://media.twiliocdn.com.s3-external-1.amazonaws.com/AC4c7e361ffe2675c8003322fbff77451f/30ad05567b94fa59f1f3f0b074938448);
+	}
+	#panel1:hover {
+		/*Whatever effects you want to happen when you over over your comic 
+		should go here, between these two {}s.*/
+	}
+	#panel2 {
+		/*Here is where we set the background image for panel 2.*/
+		background-image:url(http://media.twiliocdn.com.s3-external-1.amazonaws.com/AC4c7e361ffe2675c8003322fbff77451f/e9fe6513081dbfa0ba9080270a8dff01);
+	}
+	#panel2:hover {
+		/*Whatever effects you want to happen when you over over your comic 
+		should go here, between these two {}s.*/
+	}
+	#panel3 {
+		/*Here is where we set the background image for panel 3.*/
+		background-image:url(http://media.twiliocdn.com.s3-external-1.amazonaws.com/AC4c7e361ffe2675c8003322fbff77451f/ef67ebf83f4de6d71885907243f17c5b);
+	}
+	#panel3:hover {
+		/*Whatever effects you want to happen when you over over your comic 
+		should go here, between these two {}s.*/
+	}
+	</style>
+</head>
+<body>
+<div id="header">
+	<h1>Eddy Sleeps!</h1>
+	<small>by Shaunalynn, with Alec and Eddy's pictures</small>
+</div>
+<div id="comic">
+	<div id="panel1"></div>
+	<div id="panel2"></div>
+	<div id="panel3"></div>
+</div>
+
+</body>
+</html>
