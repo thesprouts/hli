@@ -65,7 +65,7 @@ category: intros
 <body>
 
 <div class="border">
-        <button class="button" id="Brian">Guess Who?</button>
+        <button class="button" id="Molly">Guess Who?</button>
         <div id="pasta" ; class="images">
         </div>
         <audio id="myHouse" src="./audio/myHouse.mp3"></audio>
@@ -92,6 +92,14 @@ category: intros
         myHouse.pause();
     });
 
+    var buttons = document.getElementsByClassName("button");
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function() {
+
+            var self = this;
+            console.log(this.id)
+        })
+    };
 
     </script>
 

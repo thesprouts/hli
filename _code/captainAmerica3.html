@@ -54,7 +54,7 @@ category: intros
         </div>
     </div>
 
-    <audio id="audio" src="./audio/fire2.mp3"></audio>
+    <audio id="audio" preload="auto" src="./audio/fire2.mp3"></audio>
 
     <script type="text/javascript">
 
@@ -63,14 +63,14 @@ category: intros
 
     	var audio = document.getElementById("audio");
     var captain = document.getElementById("captain");
-    captain.addEventListener("mouseover", function() {
+    captain.addEventListener("mouseenter", function() {
     	 	text.style.opacity ="1.0";
     	text.style.transition = "2s";
         audio.play();
     })
 
 
-captain.addEventListener("mouseout", function() {
+captain.addEventListener("mouseleave", function() {
     	 	text.style.opacity ="0.0";
     	text.style.transition = "2s";
         audio.pause();
@@ -80,6 +80,14 @@ captain.addEventListener("mouseout", function() {
    
     
 
+    var buttons = document.getElementsByClassName("button");
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function() {
+
+            var self = this;
+            console.log(this.id)
+        })
+    };
 
 
     	

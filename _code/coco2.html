@@ -57,6 +57,20 @@ category: intros
             <button id="Clemens" class="button" type=submit> Guess who?</button>
         </div>
     </div>
+
+    <script>
+    
+    var buttons = document.getElementsByClassName("button");
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function() {
+
+            var self = this;
+            console.log(this.id)
+        })
+    };
+        
+
+    </script>
 </body>
 
 </html>

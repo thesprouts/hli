@@ -13,7 +13,7 @@ category: intros
 /*    This is the formatting for the moving div 
 */   
  #hummer {
-        opacity: 0.0;
+        display:none;        
         width: 500px;
         height: 400px;
         background-size: cover;
@@ -148,7 +148,7 @@ category: intros
             <button id="Crystal" class="button" type=submit> Guess who?</button>
             <div id="hummer"></div>
 
-            <audio id="sorrySong" src="./audio/sorry.mp3"></audio>
+            <audio preload="auto" id="sorrySong" src="./audio/sorry.mp3"></audio>
         </div>
     </div>
 
@@ -166,21 +166,29 @@ category: intros
     var sorrySong = document.getElementById("sorrySong")
     var landscape = document.getElementById("landscape");
     var hummer = document.getElementById("hummer");
-    landscape.addEventListener("mouseover", function() {
-        hummer.style.opacity = "1.0";
+    landscape.addEventListener("mouseenter", function() {
+        hummer.style.display = "block";
         sorrySong.play();
         texta.style.opacity="0.0";
         textb.style.opacity="1.0";
     })
 
-    landscape.addEventListener("mouseout", function() {
-        hummer.style.opacity = "0.0";
+    landscape.addEventListener("mouseleave", function() {
+        hummer.style.display = "none";
         sorrySong.pause();
           texta.style.opacity="1.0";
         textb.style.opacity="0.0";
 
     });
 
+    var buttons = document.getElementsByClassName("button");
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function() {
+
+            var self = this;
+            console.log(this.id)
+        })
+    };
 
     </script>
 

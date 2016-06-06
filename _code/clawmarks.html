@@ -112,6 +112,16 @@ category: intros
         click.style.backgroundColor = "red";
         click.style.color="black";
     })
+
+    
+    var buttons = document.getElementsByClassName("button");
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function() {
+
+            var self = this;
+            console.log(this.id)
+        })
+    };
  
     </script>
 

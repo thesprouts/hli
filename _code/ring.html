@@ -70,7 +70,6 @@ category: intros
 
     ring.addEventListener("mouseover", function() {
         html.style.backgroundColor = "yellow";
-        // html.style.transition = "1s";
        text.innerText = "or gold?";
         text.style.transition = "1s"; 
         ring.style.webkitFilter = 'hue-rotate('+ 0 + 'deg)';
@@ -81,20 +80,24 @@ category: intros
         html.style.backgroundColor = "white";
                text.innerText = "Silver?";
                	ring.style.webkitFilter = 'hue-rotate('+ 200+ 'deg)';
-               // text.style.transition = "1s";
 
 
     })
 
    var text = document.getElementById("text");
    text.innerText = "Silver?";
-
-   // // ring.addEventListener("mouseover", function(){
    	ring.style.webkitFilter = 'hue-rotate('+ 0+ 'deg)';
-   // // 	html.style.backgroundColor="yellow";
-   
+  
+  var buttons = document.getElementsByClassName("button");
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function() {
 
-   // // });
+            var self = this;
+            console.log(this.id)
+        })
+    };
+
+
     </script>
 </body>
 
