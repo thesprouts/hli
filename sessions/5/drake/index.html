@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    .cover {
+        float: left;
+        width: 1500px;
+        height: 1500px;
+        position: relative;
+    }
+    
+    #recreated {
+        background-image: url('./sky.png');
+    }
+    
+    #recreated div {
+        position: absolute;
+    }
+    
+    #head {
+        background-image: url('./head.png');
+        width: 797px;
+        height: 996px;
+        left: 274px;
+        bottom: 0px;
+    }
+    
+    #parental-advisory {
+        background-image: url('./parental-advisory.png');
+        width: 154px;
+        height: 95px;
+        bottom: 72px;
+        left: 21px;
+    }
+    
+    #name {
+        background-image: url('./name.png');
+        width: 270px;
+        height: 77px;
+        bottom: 28px;
+        right: 30px;
+    }
+    
+    #mark {
+        background-image: url('./mark.png');
+        width: 167px;
+        height: 38px;
+        left: 18px;
+        bottom: 25px;
+    }
+    
+    @keyframes backgroundScroll {
+        from {
+            background-position: 0px 0px;
+        }
+        to {
+            background-position: 1500px 0px;
+        }
+    }
+    
+    #recreated {
+        background-repeat: repeat-x;
+        animation: backgroundScroll 2s linear infinite;
+    }
+    </style>
+</head>
+
+<body>
+    <div class='cover' id='recreated'>
+        <div id='head'></div>
+        <div id='parental-advisory'></div>
+        <div id='mark'></div>
+        <div id='name'></div>
+    </div>
+    <audio autoplay loop>
+        <source src='./Pound Cake (Featuring JAY Z, Drake).mp3'>
+    </audio>
+    <script>
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    div {
+        position: absolute;
+        background-size: contain;
+    }
+    
+    .car {
+        /*Scale down our car proportionally, looking at its dimensions*/
+        width: calc(960px/5);
+        height: calc(480px/5);
+        background-image: url(./beetle.png);
+        transition: 0.05s linear;
+        /* Make the transition linear so that nudging the car looks smoother */
+    }
+    
+    .smoke {
+        /*Scale down our smoke proportionally, looking at its dimensions*/
+        width: calc(128px/4);
+        height: calc(128px/4);
+        background-image: url(./smoke.png);
+        /* Make our opacity transition slowly, and my top/left transition linearly over 250ms */
+        transition: opacity 3s ease, top 250ms linear, left 250ms linear, width 3s, height 3s;
+        animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <script>
+    var SmokePuff = function(x, y) {
+        // An object to make a smoke puff at x and y
+        var self = this;
+        self.x = x;
+        self.y = y;
+
+        var makeSmokeDiv = function() {
+            var div = document.createElement('div');
+            div.classList.add('smoke');
+            div.style.left = self.x + 'px';
+            div.style.top = self.y + 'px';
+            div.style.animationDuration = 1 + Math.random() * 5 + 's'; // Choose a random animation duration between 1 and 6s.
+            return div;
+        };
+
+        self.div = makeSmokeDiv();
+        document.body.appendChild(self.div);
+
+        // A function we can run to nudge it up and to the left
+        self.floatUpAndToTheLeft = function() {
+            var noise = Math.random() * 20; // Come up with a random number so the smoke motion looks less mechanical
+            self.x = self.x - 1 * 10 - noise; // Change our x
+            self.y = self.y - 1 * 20 - noise; // and our y
+            self.div.style.left = self.x + 'px'; // Actually move the div
+            self.div.style.top = self.y + 'px'; // Actually move the div
+        };
+
+        self.fadeOut = function() { // Set up a timer to make our smoke fade away a second after we make it
+            self.div.style.opacity = 0;
+            self.div.style.width = 'calc(128px*2)';
+            self.div.style.height = 'calc(128px*2)';
+        };
+
+        self.floatTimer = setInterval(self.floatUpAndToTheLeft, 250); // Create a new timer to run float
+        self.fadeTimer = setTimeout(self.fadeOut, 100);
+    };
+
+    var Car = function() {
+        var self = this;
+
+        self.x = 100;
+        self.y = 250;
+
+        var makeCarDiv = function() {
+            var div = document.createElement('div');
+            div.classList.add('car');
+            div.style.left = self.x + 'px';
+            div.style.top = self.y + 'px';
+            div.style.zIndex = 1; // Make sure our car is on top of our smoke
+            addSounds(div);
+            return div;
+        };
+
+        var addSounds = function(div) {
+            self.sounds = {};
+            ['idle', 'speed'].forEach(function(engineSound) {
+                var audioElement = document.createElement('audio');
+                audioElement.id = engineSound;
+                audioElement.src = './' + engineSound + '.m4a';
+                audioElement.setAttribute('preload', true);
+                audioElement.setAttribute('loop', true);
+                self.sounds[engineSound] = audioElement;
+                div.appendChild(audioElement);
+            });
+        };
+
+        self.pauseSounds = function() {
+            for (sound in self.sounds) {
+                self.sounds[sound].pause()
+            }
+        }
+
+        self.play = function(sound) {
+            self.sounds[sound].currentTime = 0;
+            self.pauseSounds();
+            self.sounds[sound].play();
+        }
+
+        var vroom = false;
+        self.nudge = function() { // A function which will move our car to the right 10px
+            vroom = true; // When we run nudge, we're vrooming…
+            self.x = self.x + 10; // Adjust x
+            self.div.style.left = self.x + 'px'; // And then adjust our position
+        };
+
+        self.emitSmoke = function() { // A function to make a smoke cloud appear
+            new SmokePuff(self.x, self.y + self.div.offsetHeight / 3); // We use a different y so that it looks like it's coming from the bottom of the car
+        };
+
+        document.addEventListener('keydown', function(event) { // The arrow keys are only detected on keydown, not keypress events
+            if (event.keyCode == '39') { // 39 is the keycode for the right arrow
+                if (!vroom) { // Check if we're transitioning from idling to speeding, or if this is just "another" nudge in the midst of speeding
+                    self.play('speed'); // If we are transitioning, start playing the speed soundtrack
+                }
+                self.nudge(); // Actually nudge us
+
+                if (Math.random() > 0.75) { // Randomly make a cloud while we're speeding
+                    self.emitSmoke();
+                }
+            }
+        });
+
+        document.addEventListener('keyup', function(event) { // When we let go of the key
+            if (event.keyCode == '39') { // If we let go of the right arrow
+                if (vroom) { // And we _were_ speeding
+                    self.play('idle'); // Switch to playing the idle sound
+                }
+                vroom = false; // and turn off vroom
+            }
+        });
+
+        self.startTheCar = function() { // A function to start the car idling and smoking
+            self.play('idle'); // Play the idle sound
+            idleSmoke = setInterval(function() { // And set up a timer to occasionally trigger a smoke cloud
+                if (Math.random() < 0.1) {
+                    self.emitSmoke();
+                }
+            }, 100);
+        };
+
+        self.div = makeCarDiv(); // Make our car div
+        document.body.appendChild(self.div); // Stick it in our document
+        self.startTheCar(); // And start it
+    };
+
+    var ourCar = new Car(); // Now actually make one particular car
+    </script>
+</body>
+
+</html>
