@@ -1,0 +1,114 @@
+---
+title: 3 Panel Comic Template, with Caption
+subtitle: 
+category: templates
+---
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>HLI: Three Panel Template, with a Caption</title>
+    <meta charset='utf-8'>
+    <style>
+    body {
+        margin: 0;
+        text-align: center;
+        font-family: Helvetica;
+    }
+    
+    #header {
+        padding: 20px;
+    }
+    
+    #header h1 {
+        padding: 10px;
+        margin: 0;
+    }
+    
+    #header small {
+        font-size: 2em;
+    }
+    
+    #comic {
+        margin: auto;
+        width: calc(3 * (400px + 2*6px));
+    }
+    
+    .panel {
+        height: 400px;
+        width: 400px;
+        border: solid 1px black;
+        float: left;
+        margin: auto;
+        background-size: cover;
+        box-shadow: 2px 2px 5px #555;
+    }
+    
+    .caption {
+        width: 100%;
+        height: 2em;
+        background-color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        margin-top: 50%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    #panel1 {
+        /*Here is where we set the background image for panel 1.*/
+        background-image: url(http://thesprouts.github.io/hli/code/img/bam.png);
+    }
+    
+    #panel1:hover {
+        /*Whatever effects you want to happen when you over over your comic 
+		should go here, between these two {}s.*/
+        transform: rotate(360deg);
+        transition: 1s;
+    }
+    
+    #panel2 {
+        /*Here is where we set the background image for panel 2.*/
+        background-image: url(http://thesprouts.github.io/hli/code/img/bang.jpg);
+    }
+    
+    #panel2:hover {
+        /*Whatever effects you want to happen when you over over your comic 
+		should go here, between these two {}s.*/
+		opacity: 0;
+        transition: 1s;
+    }
+    
+    #panel3 {
+        /*Here is where we set the background image for panel 3.*/
+        background-image: url(http://thesprouts.github.io/hli/code/img/pow.gif);
+    }
+    
+    #panel3:hover {
+        /*Whatever effects you want to happen when you over over your comic 
+		should go here, between these two {}s.*/
+		transform: scale(0);
+        transition: 0.5s;
+    }
+    </style>
+</head>
+
+<body>
+    <div id='header'>
+        <h1>Title of My Comic!</h1>
+        <small>by 🙊</small>
+    </div>
+    <div id='comic'>
+        <div class='panel' id='panel1'>
+            <div class='caption'>A caption for the first panel…✊</div>
+        </div>
+        <div class='panel' id='panel2'>
+            <div class='caption'>…Aaand a caption for the second…🍗</div>
+        </div>
+        <div class='panel' id='panel3'>
+            <div class='caption'>¯\_(ツ)_/¯ and I guess for the third 🐳</div>
+        </div>
+    </div>
+</body>
+
+</html>
