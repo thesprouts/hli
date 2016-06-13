@@ -3,37 +3,40 @@ layout: page
 title:
 permalink: /code/
 ---
-<h1 id="intros">Introductions</h1><hr>
+<h1 id="intros">Introductions</h1>
+<ul>
 {% for script in site.code %}
 	{% if script.category == 'intros' %}
-	<ul>
 		<li>
 			<a href="{{ script.url | prepend: site.baseurl }}">{{ script.title }}</a>{% if script.subtitle %}: {{ script.subtitle}} {% endif %}
 		</li>
-	</ul>
 	{% endif %}
 {% endfor %}
+</ul>
+<hr>
 
-<h1 id="templates">Sample Comics</h1><hr>
+<h1 id="templates">Sample Comics</h1>
+<ul>
 {% for script in site.code %}
 	{% if script.category == 'templates' %}
-	<ul>
 		<li>
 			<a href="{{ script.url | prepend: site.baseurl }}">{{ script.title }}</a>{% if script.subtitle %}: {{ script.subtitle}} {% endif %}
 		</li>
-	</ul>
 	{% endif %}
 {% endfor %}
+</ul>
+<hr>
 
-<h1 id="walkthroughs">Walkthroughs</h1><hr>
+<h1 id="walkthroughs">Walkthroughs</h1>
 <ul>
 	<li><a href='https://youtu.be/_Flhd6X3M3k'>How to add a panel</a></li>
 	<li><a href='https://youtu.be/a16HUv4SnsU'>How to add a background image</a></li>
 	<li><a href='https://youtu.be/kH32Mpv1Kds'>How to embed and trim a video</a></li>
 	<li><a href='https://youtu.be/0uS8BnMekYg'>Adding audio to a panel on mouseover</a></li>
 </ul>
+<hr>
 
-<h1 id="movies">#AddAWordRuinAMovie</h1><hr>
+<h1 id="movies">#AddAWordRuinAMovie</h1>
 {% for script in site.code %}
 	{% if script.category == 'movies' %}
 	<ul>
