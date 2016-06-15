@@ -1,0 +1,81 @@
+---
+title: Zombie Apocolypse
+subtitle: a friend with means
+category: templates
+---
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0;
+    }
+    
+    #card {
+        width: calc(480px - 2*1px);
+        height: calc(480px - 2*1px);
+        position: fixed;
+        top: calc(50% - 480px/2);
+        left: calc(50% - 480px/2);
+        border: 1px solid black;
+    }
+    
+    #card > div {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+    
+    #card #front {
+        font-family:Courier;
+        font-size: 3.5em;
+        color: black;
+        z-index: 1;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        opacity: 0;
+        transition: 3s;
+    }
+    
+    #back img, #back video {
+        max-height: 100%;
+        max-width: 100%;
+        width: 100%;
+        height: 100%;
+
+        transition:2s;
+    }
+    .show {
+        display: flex;
+    }
+    </style>
+</head>
+
+<body>
+    <div id='card'>
+        <div id='front' class='hide'>
+            Clemens, <br> I sure hope I can find you when the apocalypse goes down!
+        </div>
+        <div id='back'>
+            <img id="truck" src="./img/zombie.png">
+        </div>
+    </div>
+    <script>
+    var card = document.querySelector('#card');
+    var truck = document.querySelector('#truck');
+    card.addEventListener('click', function(event) {
+        card.querySelector('#front').style.opacity = '1';
+        card.querySelector('#front').style.transform = 'rotate(360deg)';
+        truck.style.transform = 'translate(-1000px)';
+        card.style.border = 'none';
+    });
+    </script>
+</body>
+
+</html>
