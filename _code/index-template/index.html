@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    #container {
+        width: calc(568px/2);
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    video {
+        max-width: 100%;
+        max-height: 100%;
+        width: calc(568px/2);
+        height: calc(568px/2);
+    }
+    
+    #links {
+        display: flex;
+        justify-content: center;
+        /* align horizontal */
+        align-items: center;
+        /* align vertical */
+    }
+    
+    #links a {
+        font-family: "Courier New";
+    }
+    </style>
+</head>
+
+<body>
+    <div id='container'>
+        <video src='teletubbies.mov'></video>
+        <ul id='links'>
+        </ul>
+    </div>
+    <script>
+    var addLink = function(text, url) {
+        var ul = document.querySelector('ul#links');
+        var li = document.createElement('li');
+        var a = document.createElement('a');
+        a.innerText = text;
+        a.setAttribute('href', url);
+        li.appendChild(a);
+        ul.appendChild(li);
+    };
+
+    var myUrl = document.location.origin;
+    var cache = myUrl + '/' + 'auto.appcache';
+    var request = new XMLHttpRequest();
+    request.open('GET', cache);
+    request.addEventListener('load', function(event) {
+        if (event.target.status !== 404) {
+            var manifest = event.target.response;
+            var lines = manifest.split('\n').map(line => line.trim());
+            var startUrlSearch = lines.indexOf("CACHE:");
+            var finishUrlSearch = lines.indexOf("NETWORK:");
+            var urls = lines.splice(startUrlSearch, finishUrlSearch).filter(url => url.match(/^\//) && url.match(/\.html$/));
+            urls.forEach(function(url) {
+                addLink(url, myUrl + url);
+            });
+        }
+    });
+    request.send();
+    </script>
+</body>
+
+</html>
