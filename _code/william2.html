@@ -1,0 +1,83 @@
+---
+title: Card Test
+category: cards
+---
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    body {
+        margin: 0;
+    }
+    
+    #card {
+        width: calc(1.745 * 480px - 2*1px);
+        height: calc(480px - 2*1px);
+        position: fixed;
+        top: calc(50% - 480px/2);
+        left: calc(50% - 1.745 * 480px/2);
+        border: 1px solid black;
+    }
+    
+    #card > div {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+    
+    #card #front {
+        font-size: 4em;
+        color: lightblue;
+        z-index: 1;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        opacity: 0;
+        transition: 1s;
+    }
+    
+    #back img, #back video {
+        max-height: 100%;
+        max-width: 100%;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .show {
+        display: flex;
+    }
+    </style>
+</head>
+
+<body>
+    <div id='card'>
+        <div id='front' class='hide'>
+            hey-yo
+        </div>
+        <div id='back'>
+        	<!-- Put the filename of your video here if you have it -->
+            <video src='./mov/william.mov'></video>
+
+            <!-- Or put the filename of your image here if you have it -->
+            <!-- <img src='janelle.png'> -->
+        </div>
+    </div>
+    <script>
+    var card = document.querySelector('#card');
+    var video = document.querySelector('#back video') ? document.querySelector('#back video') : null;
+    card.addEventListener('click', function(event) {
+        card.querySelector('#front').style.opacity = '1';
+        card.querySelector('#front').style.transform = 'rotate(360deg)';
+        if (video) {
+            video.play();
+        }
+    });
+    </script>
+</body>
+
+</html>
