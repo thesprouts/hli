@@ -4,42 +4,79 @@
 <head>
     <meta charset="utf-8">
     <style>
-    #container {
-        width: calc(568px/2);
-        margin-left: auto;
-        margin-right: auto;
+    body {
+        margin: 0;
     }
     
-    video {
-        max-width: 100%;
-        max-height: 100%;
-        width: calc(568px/2);
-        height: calc(568px/2);
+    #container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    
+    #container video,
+    #container img {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -100;
+        transform: translateX(-50%) translateY(-50%);
+        background-size: cover;
     }
     
     #links {
-        display: flex;
-        justify-content: center;
-        /* align horizontal */
-        align-items: center;
-        /* align vertical */
+        position: fixed;
+        right: 2%;
+        padding-left: 0.375em;
+        padding-top: 0.25em;
+        padding-bottom: 0.25em;
+        animation-duration: 1s;
+        background-color: rgba(0, 0, 0, 0.8);
+        border-radius: 20px;
+        opacity: 0;
+        list-style-type: none;
+        text-align: left;
+        font-size: 2em;
     }
     
     #links a {
+        text-decoration: none;
         font-family: "Courier New";
+        color: lightblue;
+    }
+    
+    #links a:visited {
+        color: lightblue;
+    }
+    
+    @keyframes slide-up {
+        0% {
+            top: 100%;
+        }
+        100% {
+            top: 0%;
+        }
     }
     </style>
 </head>
 
 <body>
     <div id='container'>
-        <video src='janelle.mov' autoplay loop></video>
-        <ul id='links'>
-        </ul>
+        <!-- Choose a video or an image for your background— If you want a video, replace `image.mov` with your video's file name.  If you want an image, replace `image.png` with your filename -->
+        <video id='index' src='movie.mov' autoplay loop></video>
+        <!-- <img id='index' src='image.png'> -->
+        <ul id='links'></ul>
     </div>
     <script>
+    var ul = document.querySelector('ul#links');
+    var video = document.querySelector('#container video#index');
+    var image = document.querySelector('#container img#index');
+
     var addLink = function(text, url) {
-        var ul = document.querySelector('ul#links');
         var li = document.createElement('li');
         var a = document.createElement('a');
         a.innerText = text;
@@ -47,6 +84,10 @@
         li.appendChild(a);
         ul.appendChild(li);
     };
+
+    var excludedPatterns = [
+        /index\.html/
+    ];
 
     var myUrl = document.location.origin;
     var cache = myUrl + '/' + 'auto.appcache';
@@ -56,15 +97,30 @@
         if (event.target.status !== 404) {
             var manifest = event.target.response;
             var lines = manifest.split('\n').map(line => line.trim());
+
             var startUrlSearch = lines.indexOf("CACHE:");
             var finishUrlSearch = lines.indexOf("NETWORK:");
-            var urls = lines.splice(startUrlSearch, finishUrlSearch).filter(url => url.match(/^\//) && url.match(/\.html$/));
+
+            var urls = lines.splice(startUrlSearch, finishUrlSearch).filter(url => url.match(/^\//) && url.match(/\.html$/) && url != '/index.html');
             urls.forEach(function(url) {
                 addLink(url, myUrl + url);
             });
+
         }
     });
     request.send();
+
+    if (video) {
+        video.addEventListener('canplaythrough', function(event) {
+            ul.style.opacity = 1;
+            ul.style.animationName = 'slide-up';
+        });
+    } else if (image) {
+        image.addEventListener('load', function(event) {
+            ul.style.opacity = 1;
+            ul.style.animationName = 'slide-up';
+        });
+    }
     </script>
 </body>
 
