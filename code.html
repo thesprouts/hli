@@ -3,10 +3,23 @@ layout: page
 title:
 permalink: /code/
 ---
-<h1 id="intros">Introductions</h1>
+
+<h1 id="templates">Templates</h1>
 <ul>
 {% for script in site.code %}
-	{% if script.category == 'intros' %}
+	{% if script.category == 'templates' %}
+		<li>
+			<a href="{{ script.url | prepend: site.baseurl }}">{{ script.title }}</a>{% if script.subtitle %}: {{ script.subtitle}} {% endif %}
+		</li>
+	{% endif %}
+{% endfor %}
+</ul>
+<hr>
+
+<h1 id="templates">Sample Cards</h1>
+<ul>
+{% for script in site.code %}
+	{% if script.category == 'cards' %}
 		<li>
 			<a href="{{ script.url | prepend: site.baseurl }}">{{ script.title }}</a>{% if script.subtitle %}: {{ script.subtitle}} {% endif %}
 		</li>
@@ -18,7 +31,19 @@ permalink: /code/
 <h1 id="templates">Sample Comics</h1>
 <ul>
 {% for script in site.code %}
-	{% if script.category == 'templates' %}
+	{% if script.category == 'comics' %}
+		<li>
+			<a href="{{ script.url | prepend: site.baseurl }}">{{ script.title }}</a>{% if script.subtitle %}: {{ script.subtitle}} {% endif %}
+		</li>
+	{% endif %}
+{% endfor %}
+</ul>
+<hr>
+
+<h1 id="intros">Introductions</h1>
+<ul>
+{% for script in site.code %}
+	{% if script.category == 'intros' %}
 		<li>
 			<a href="{{ script.url | prepend: site.baseurl }}">{{ script.title }}</a>{% if script.subtitle %}: {{ script.subtitle}} {% endif %}
 		</li>
